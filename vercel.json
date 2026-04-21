@@ -1,1 +1,4 @@
-{"buildCommand": "","outputDirectory": ".","framework": "static"}
+{
+  "buildCommand": "",
+  "outputDirectory": "."
+}
