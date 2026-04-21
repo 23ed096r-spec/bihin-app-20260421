@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>舞研備品管理</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#3B1F5E">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="舞研備品管理">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNjgwIDY4MCI+CjxyZWN0IHdpZHRoPSI2ODAiIGhlaWdodD0iNjgwIiByeD0iMTIwIiBmaWxsPSIjM0IxRjVFIi8+CjxlbGxpcHNlIGN4PSIzNDAiIGN5PSIyNTAiIHJ4PSIzMjAiIHJ5PSIyNjAiIGZpbGw9IiM0QTFBNzIiIG9wYWNpdHk9IjAuNSIvPgo8cGF0aCBkPSJNMTE4IDI5NSBROTUgMzQwIDgyIDQwMCBROTAgNDM1IDExOCA0NTAgUTE0OCA0NjIgMTc1IDQ2MCBRMjAyIDQ1OCAyMjUgNDQ1IFEyNDggNDMwIDI1MiA0MDAgUTI0MiAzNDAgMjIyIDI5NSBaIiBmaWxsPSIjNkIyRDhCIiBvcGFjaXR5PSIwLjkiLz4KPHBhdGggZD0iTTg1IDM5OCBRMTA1IDQyMiAxMzUgNDMwIFExNTUgNDM2IDE3NSA0MzYgUTE5NSA0MzQgMjE4IDQyOCBRMjQyIDQyMCAyNTAgMzk4IiBzdHJva2U9IiM5QjVDQzAiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0xMzggMjEwIFExMjggMjM4IDEyNiAyNzAgUTEyNiAyOTUgMTM1IDI5OCBRMTU1IDMwNCAxNzUgMzA0IFExOTUgMzAyIDIxNSAyOTggUTIyNCAyOTUgMjI0IDI3MCBRMjIyIDIzOCAyMTIgMjEwIFExOTUgMjAyIDE3NSAyMDAgUTE1NSAyMDIgMTM4IDIxMCBaIiBmaWxsPSIjNUMyMDgwIi8+CjxwYXRoIGQ9Ik0yMzAgMjkwIFExOTUgMzYwIDE3OCA0NTUgUTE5MiA1MDggMjQwIDUzMiBRMjg4IDU1NSAzNDAgNTU4IFEzOTIgNTU1IDQ0MCA1MzIgUTQ4OCA1MDggNTAyIDQ1NSBRNDg1IDM2MCA0NTAgMjkwIFoiIGZpbGw9IiM4QjNBQjUiLz4KPHBhdGggZD0iTTE4NSA0NDggUTIxMCA0ODggMjU4IDUwNSBRMjk4IDUxOCAzNDAgNTIwIFEzODIgNTE4IDQyMiA1MDUgUTQ2OCA0ODggNDk1IDQ0OCIgc3Ryb2tlPSIjQjA2MEQ4IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTE5NSA0NjAgUTIxMCA0NzQgMjI2IDQ2MCBRMjQyIDQ0NiAyNTggNDYwIFEyNzQgNDc0IDI5MCA0NjAgUTMwNiA0NDYgMzIyIDQ2MCBRMzM4IDQ3NCAzNTQgNDYwIFEzNzAgNDQ2IDM4NiA0NjAgUTQwMiA0NzQgNDE4IDQ2MCBRNDI4IDQ0NiA0NTAgNDYwIiBzdHJva2U9IiNEMDkwRjAiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjg1Ii8+CjxwYXRoIGQ9Ik0yOTIgMTk1IFEyNzggMjMwIDI3NSAyNzIgUTI3NCAyOTUgMjg4IDMwMiBRMzEyIDMxMiAzNDAgMzEyIFEzNjggMzEyIDM5MiAzMDIgUTQwNiAyOTUgNDA1IDI3MiBRNDAyIDIzMCAzODggMTk1IFEzNjggMTgzIDM0MCAxODAgUTMxMiAxODMgMjkyIDE5NSBaIiBmaWxsPSIjNkIyMDkwIi8+CjxwYXRoIGQ9Ik00NTggMjk1IFE0MzUgMzQwIDQyOCA0MDAgUTQzMiA0MzUgNDU1IDQ1MCBRNDc4IDQ2MiA1MDUgNDYwIFE1MzIgNDU4IDU1NSA0NDUgUTU3OCA0MzAgNTgyIDQwMCBRNTc4IDM0MCA1NjIgMjk1IFoiIGZpbGw9IiM1QzFBODAiIG9wYWNpdHk9IjAuOSIvPgo8cGF0aCBkPSJNNDM4IDQwOCBRNDUwIDQxOCA0NjIgNDA4IFE0NzQgMzk4IDQ4NiA0MDggUTQ5OCA0MTggNTEwIDQwOCBRNTIyIDM5OCA1MzQgNDA4IFE1NDYgNDE4IDU1OCA0MDggUTU3MCAzOTggNTc4IDQwOCIgc3Ryb2tlPSIjQTA2NUM1IiBzdHJva2Utd2lkdGg9IjEuOCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+Cjx0ZXh0IHg9IjM0MCIgeT0iNjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSI0NCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI0U4RDVGNSIgbGV0dGVyLXNwYWNpbmc9IjEwIj7nq4vmlZk8L3RleHQ+Cjwvc3ZnPg==">
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    const sw = `self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(clients.claim()));self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>caches.match(e.request))));`;
+    const blob = new Blob([sw], {type: 'application/javascript'});
+    navigator.serviceWorker.register(URL.createObjectURL(blob));
+  });
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const manifest = {
+    name: '立教舞踏研究会 備品管理',
+    short_name: '舞研備品管理',
+    start_url: './',
+    display: 'standalone',
+    background_color: '#3B1F5E',
+    theme_color: '#3B1F5E',
+    icons: [{ src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNjgwIDY4MCI+CjxyZWN0IHdpZHRoPSI2ODAiIGhlaWdodD0iNjgwIiByeD0iMTIwIiBmaWxsPSIjM0IxRjVFIi8+CjxlbGxpcHNlIGN4PSIzNDAiIGN5PSIyNTAiIHJ4PSIzMjAiIHJ5PSIyNjAiIGZpbGw9IiM0QTFBNzIiIG9wYWNpdHk9IjAuNSIvPgo8cGF0aCBkPSJNMjMwIDI5MCBRMTk1IDM2MCAxNzggNDU1IFExOTIgNTA4IDI0MCA1MzIgUTI4OCA1NTUgMzQwIDU1OCBRMzkyIDU1NSA0NDAgNTMyIFE0ODggNTA4IDUwMiA0NTUgUTQ4NSAzNjAgNDUwIDI5MCBaIiBmaWxsPSIjOEIzQUI1Ii8+Cjx0ZXh0IHg9IjM0MCIgeT0iNjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSI0NCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI0U4RDVGNSIgbGV0dGVyLXNwYWNpbmc9IjEwIj7nq4vmlZk8L3RleHQ+Cjwvc3ZnPg==', sizes: '512x512', type: 'image/svg+xml' }]
+  };
+  const mblob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+  const mlink = document.createElement('link');
+  mlink.rel = 'manifest';
+  mlink.href = URL.createObjectURL(mblob);
+  document.head.appendChild(mlink);
+});
+</script>
+<style>
+  :root {
+    --bg: #F9F6FD;
+    --card: #FFFFFF;
+    --primary: #3B1F5E;
+    --accent: #6B2D8B;
+    --accent-light: #F3EDFB;
+    --accent-mid: #B085CC;
+    --success: #1A7A4A;
+    --success-light: #E6F5ED;
+    --warning: #C0392B;
+    --warning-light: #FDECEA;
+    --late: #B7770D;
+    --late-light: #FEF6E4;
+    --muted: #A080BC;
+    --border: rgba(107,45,139,0.10);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 2px 16px rgba(107,45,139,0.07);
+    --shadow-lg: 0 8px 40px rgba(107,45,139,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+  }
+
+  /* ===== ログイン画面 ===== */
+  .login-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(160deg, #2A0F45 0%, #4A1A72 50%, #6B2D8B 100%);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+  }
+  .login-screen.active { display: flex; }
+  .login-logo { font-size: 52px; margin-bottom: 16px; }
+  .login-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 6px; }
+  .login-sub { font-size: 13px; color: rgba(255,255,255,0.6); text-align: center; margin-bottom: 48px; }
+  .login-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 28px 24px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+  }
+  .login-label { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 10px; display: block; }
+  .login-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .login-input::placeholder { color: rgba(255,255,255,0.3); letter-spacing: 0; }
+  .login-input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
+  .login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.15s;
+  }
+  .login-btn:active { opacity: 0.8; }
+  .login-skip {
+    width: 100%;
+    padding: 13px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .login-skip:active { opacity: 0.7; }
+  .login-error { font-size: 13px; color: #FF8080; text-align: center; margin-top: 10px; min-height: 20px; }
+
+  /* ===== 権限バッジ ===== */
+  .role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .role-badge.admin { background: rgba(255,255,255,0.2); color: #fff; }
+  .role-badge.guest { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+
+  /* ===== ヘッダー ===== */
+  .header {
+    background: linear-gradient(135deg, #4A1A72 0%, #6B2D8B 55%, #7D3A9C 100%);
+    padding: 20px 20px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(107,45,139,0.22);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .app-title { font-size: 19px; font-weight: 700; color: #fff; }
+  .app-subtitle { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .logout-btn {
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.07);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    gap: 8px;
+    border: 1px solid rgba(167,139,250,0.25);
+  }
+  .search-box input {
+    border: none; background: transparent;
+    font-size: 14px; font-family: inherit;
+    width: 100%; outline: none; color: #fff;
+  }
+  .search-box input::placeholder { color: rgba(255,255,255,0.6); }
+  .search-icon { color: rgba(255,255,255,0.7); font-size: 16px; flex-shrink: 0; }
+
+  /* ===== タブナビ ===== */
+  .tab-nav {
+    display: flex; gap: 6px;
+    padding: 0 20px; margin-top: 10px;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 6px 16px; border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    font-size: 13px; font-family: inherit;
+    color: var(--muted); cursor: pointer;
+    white-space: nowrap; transition: all 0.15s; font-weight: 500;
+  }
+  .tab-btn.active { background: var(--accent-light); color: var(--accent); border-color: var(--accent-mid); }
+
+  /* ===== フィルターチップ ===== */
+  .filter-chips {
+    display: flex; gap: 6px;
+    padding: 12px 20px 0;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .filter-chips::-webkit-scrollbar { display: none; }
+  .chip {
+    padding: 5px 14px; border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    font-size: 12px; font-family: inherit;
+    color: var(--muted); cursor: pointer;
+    white-space: nowrap; transition: all 0.15s; font-weight: 500;
+  }
+  .chip.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+  /* ===== コンテンツ ===== */
+  .content { padding: 12px 16px 0; }
+
+  /* ===== サマリーカード ===== */
+  .summary-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .sum-card { background: var(--card); border-radius: var(--radius-sm); padding: 14px 10px; text-align: center; box-shadow: var(--shadow); border: 1.5px solid var(--border); }
+  .sum-num { font-size: 24px; font-weight: 700; color: var(--accent); }
+  .sum-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .sum-card.warn .sum-num { color: var(--warning); }
+  .sum-card.ok .sum-num { color: var(--success); }
+
+  /* ===== 備品カード ===== */
+  .section-title { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase; }
+  .item-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .item-card {
+    background: var(--card); border-radius: var(--radius);
+    padding: 14px 16px; box-shadow: var(--shadow);
+    display: flex; align-items: center; gap: 12px;
+    cursor: pointer; transition: transform 0.12s, box-shadow 0.12s;
+    border: 1.5px solid var(--border);
+  }
+  .item-card:active { transform: scale(0.97); box-shadow: var(--shadow-lg); }
+  .item-thumb {
+    width: 46px; height: 46px; border-radius: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: var(--accent-light);
+  }
+  .item-thumb-placeholder {
+    width: 46px; height: 46px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .item-thumb-placeholder.dress { background: linear-gradient(135deg,#3D1F3A,#52294D); }
+  .item-thumb-placeholder.suit  { background: linear-gradient(135deg,#2A1F4A,#3B2A66); }
+  .item-thumb-placeholder.shoes { background: linear-gradient(135deg,#FFF0D6,#FFE0A8); }
+  .item-thumb-placeholder.other { background: linear-gradient(135deg,#0F2E1F,#153D28); }
+  .item-body { flex: 1; min-width: 0; }
+  .item-name { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--primary); }
+  .item-no { display: inline-block; font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-light); border-radius: 6px; padding: 2px 8px; margin-top: 4px; border: 1px solid rgba(167,139,250,0.2); }
+  .item-note { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .item-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+  .badge { padding: 4px 11px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+  .badge.ok   { background: var(--success-light); color: var(--success); }
+  .badge.out  { background: var(--accent-light); color: var(--accent); }
+  .badge.late { background: var(--late-light); color: var(--late); }
+  .borrower-text { font-size: 11px; color: var(--muted); }
+
+  /* ===== 詳細ドロワー ===== */
+  .drawer-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+  .drawer-backdrop.open { opacity: 1; pointer-events: all; }
+  .drawer {
+    position: fixed; bottom: 0; left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    width: 100%; max-width: 480px;
+    background: var(--card); border-radius: 24px 24px 0 0;
+    padding: 0 0 40px; z-index: 201;
+    transition: transform 0.3s cubic-bezier(0.32,0.72,0,1);
+    box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(-50%) translateY(0); }
+  .drawer-handle { width: 40px; height: 4px; background: var(--border); border-radius: 2px; margin: 12px auto 0; }
+  .drawer-header { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); }
+  .drawer-id { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .drawer-name { font-size: 20px; font-weight: 700; color: var(--primary); }
+  .drawer-img { width: 100%; max-height: 220px; object-fit: contain; border-radius: 0; display: block; background: var(--accent-light); }
+  .drawer-body { padding: 16px 20px; }
+  .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--muted); font-size: 13px; }
+  .info-val { font-weight: 500; }
+  .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  .btn { padding: 14px; border-radius: var(--radius-sm); border: none; font-size: 14px; font-family: inherit; font-weight: 700; cursor: pointer; transition: opacity 0.15s; }
+  .btn:active { opacity: 0.75; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-secondary { background: #F3EDFB; color: var(--primary); border: 1.5px solid var(--border); }
+  .btn-danger { background: var(--warning-light); color: var(--warning); }
+  .btn-full { grid-column: 1 / -1; }
+  .form-section { margin-top: 16px; }
+  .form-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; display: block; }
+  .form-input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.15s; background: #FDFBFF; }
+  .form-input:focus { border-color: var(--accent); background: #fff; }
+
+  /* ===== 写真アップロード ===== */
+  .photo-upload-area {
+    border: 2px dashed var(--accent-mid);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--accent-light);
+    margin-top: 10px;
+    transition: background 0.15s;
+  }
+  .photo-upload-area:hover { background: #EBE0F8; }
+  .photo-upload-area input { display: none; }
+  .photo-preview { width: 100%; border-radius: var(--radius-sm); margin-top: 10px; display: none; max-height: 180px; object-fit: cover; }
+
+  /* ===== ボトムナビ ===== */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%; max-width: 480px;
+    background: var(--card); border-top: 1px solid var(--border);
+    display: flex; padding: 8px 0 20px; z-index: 100;
+  }
+  .nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; border: none; background: transparent; cursor: pointer; padding: 6px; font-family: inherit; color: var(--muted); font-size: 10px; transition: color 0.15s; }
+  .nav-btn.active { color: var(--accent); font-weight: 700; }
+  .nav-icon { font-size: 22px; }
+
+  /* ===== スクリーン ===== */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ===== 延滞バナー ===== */
+  .alert-banner { background: var(--warning-light); border-left: 3px solid var(--warning); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: var(--warning); font-weight: 500; }
+
+  /* ===== トースト ===== */
+  .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1A1A1A; color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 13px; font-weight: 500; opacity: 0; transition: opacity 0.2s, transform 0.2s; z-index: 300; pointer-events: none; white-space: nowrap; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ===== 通知バッジ ===== */
+  .nav-btn { position: relative; }
+  .notif-badge {
+    position: absolute;
+    top: 2px; right: 12px;
+    width: 10px; height: 10px;
+    background: #C0392B;
+    border-radius: 50%;
+    border: 2px solid var(--card);
+    display: none;
+  }
+  .notif-badge.show { display: block; }
+
+  /* ===== 履歴画面 ===== */
+  .history-card {
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .history-type {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .history-type.lend { background: var(--accent-light); }
+  .history-type.return { background: var(--success-light); }
+  .history-info { flex: 1; min-width: 0; }
+  .history-name { font-size: 13px; font-weight: 700; color: var(--primary); }
+  .history-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .history-date { font-size: 11px; color: var(--muted); flex-shrink: 0; }
+
+  /* ===== クイック操作 ===== */
+  .quick-actions { display: flex; gap: 8px; margin-bottom: 12px; }
+  .quick-btn { flex: 1; padding: 12px; border: none; border-radius: var(--radius-sm); font-size: 13px; font-family: inherit; font-weight: 700; cursor: pointer; text-align: center; transition: opacity 0.15s; }
+  .quick-btn:active { opacity: 0.75; }
+  .quick-btn.lend { background: linear-gradient(135deg, #6B2D8B, #7D3A9C); color: #fff; box-shadow: 0 4px 14px rgba(107,45,139,0.25); }
+  .quick-btn.return { background: var(--success-light); color: var(--success); border: 1.5px solid rgba(74,222,128,0.3); }
+
+  /* ===== 掲示板 ===== */
+  .board-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .board-post-btn { padding: 8px 16px; border: none; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; }
+  .post-card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); border: 1.5px solid var(--border); margin-bottom: 10px; cursor: pointer; transition: transform 0.12s; }
+  .post-card:active { transform: scale(0.98); }
+  .post-date { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .post-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .post-author { font-size: 11px; color: var(--accent); }
+  .post-body { font-size: 13px; color: #555; margin-top: 10px; line-height: 1.7; display: none; }
+  .post-body.open { display: block; }
+  .post-img { width: 100%; border-radius: var(--radius-sm); margin-top: 10px; display: none; }
+  .post-img.open { display: block; }
+  .post-chevron { float: right; color: var(--muted); transition: transform 0.2s; }
+  .post-chevron.open { transform: rotate(180deg); }
+
+  /* 掲示板投稿フォームドロワー */
+  .post-form { padding: 0 20px 20px; }
+  .post-form .form-section { margin-top: 0; }
+
+  /* ===== 自分の貸出状況 ===== */
+  .my-lend-search { display: flex; gap: 8px; margin-bottom: 16px; }
+  .my-lend-search input { flex: 1; }
+  .my-lend-search button { padding: 12px 18px; border: none; border-radius: var(--radius-sm); background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap; }
+  .my-item-card { background: var(--card); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); border: 1.5px solid var(--border); margin-bottom: 8px; }
+  .my-item-name { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+  .my-item-info { font-size: 12px; color: var(--muted); }
+  .my-item-due { font-size: 12px; font-weight: 700; margin-top: 4px; }
+  .my-item-due.late { color: var(--warning); }
+  .my-item-due.ok { color: var(--success); }
+
+  /* ===== 備品登録画面 ===== */
+  .reg-card { background: var(--card); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); border: 1.5px solid var(--border); }
+  .reg-field { margin-bottom: 14px; }
+  .req { display: inline-block; font-size: 10px; background: var(--accent-light); color: var(--accent); border-radius: 4px; padding: 1px 6px; margin-left: 6px; font-weight: 700; vertical-align: middle; }
+  .reg-submit { width: 100%; margin-top: 8px; padding: 15px; font-size: 15px; background: linear-gradient(135deg, #6B2D8B, #7D3A9C); color: #fff; box-shadow: 0 4px 14px rgba(107,45,139,0.25); }
+
+  /* ===== 管理画面 ===== */
+  .admin-card { background: var(--card); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); border: 1.5px solid var(--border); margin-bottom: 12px; }
+  .admin-section-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .pw-info { background: var(--accent-light); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13px; color: var(--accent); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+
+<!-- ===== ログイン画面 ===== -->
+<div class="login-screen active" id="loginScreen">
+  <div class="login-logo">📦</div>
+  <div class="login-title">立教舞踏研究会</div>
+  <div class="login-sub">備品管理システム</div>
+  <div class="login-card">
+    <label class="login-label">お名前 <span style="font-size:11px;opacity:0.7;">（マイ貸出確認に使用）</span></label>
+    <input class="login-input" type="text" id="nameInput" placeholder="例：山田太郎" autocomplete="name" style="letter-spacing:0;">
+    <label class="login-label" style="margin-top:8px;">管理者パスワード <span style="font-size:11px;opacity:0.7;">（任意）</span></label>
+    <input class="login-input" type="password" id="loginInput" placeholder="管理者の方のみ入力" autocomplete="off">
+    <button class="login-btn" onclick="doLogin()">入る</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
+
+<!-- ===== ヘッダー ===== -->
+<div class="header" id="mainHeader" style="display:none;">
+  <div class="header-top">
+    <div>
+      <div class="app-title">📦 備品管理</div>
+      <div class="app-subtitle">立教舞踏研究会　備品台帳</div>
+    </div>
+    <div class="header-right">
+      <span class="role-badge" id="roleBadge"></span>
+      <button class="logout-btn" onclick="doLogout()">ログアウト</button>
+    </div>
+  </div>
+  <div class="search-box" id="headerSearch">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="備品名・ID・借受者で検索…" oninput="filterItems()">
+  </div>
+</div>
+
+<!-- タブ -->
+<div class="tab-nav" id="tabNav" style="display:none;">
+  <button class="tab-btn active" onclick="switchTab('all', this)">すべて</button>
+  <button class="tab-btn" onclick="switchTab('available', this)">貸出可能</button>
+  <button class="tab-btn" onclick="switchTab('lent', this)">貸出中</button>
+  <button class="tab-btn" onclick="switchTab('late', this)">延滞 ⚠</button>
+</div>
+
+<!-- フィルターチップ -->
+<div class="filter-chips" id="filterChips" style="display:none;">
+  <button class="chip active" onclick="filterGenre('all', this)">全ジャンル</button>
+  <button class="chip" onclick="filterGenre('ドレス', this)">ドレス</button>
+  <button class="chip" onclick="filterGenre('P服', this)">P服</button>
+  <button class="chip" onclick="filterGenre('シューズ', this)">シューズ</button>
+  <button class="chip" onclick="filterGenre('燕尾', this)">燕尾</button>
+  <button class="chip" onclick="filterGenre('ベスネク', this)">ベスネク</button>
+  <button class="chip" onclick="filterGenre('その他', this)">その他</button>
+</div>
+
+<!-- ===== 備品一覧画面 ===== -->
+<div class="screen active" id="listScreen">
+  <div class="content">
+    <div class="summary-cards" id="summaryCards"></div>
+    <div class="alert-banner" id="alertBanner" style="display:none"></div>
+    <div class="quick-actions">
+      <button class="quick-btn lend" onclick="openQuickLend()">📤 貸出処理</button>
+      <button class="quick-btn return" onclick="openQuickReturn()">📥 返却処理</button>
+    </div>
+    <div class="section-title" id="listCount">備品一覧</div>
+    <div class="item-list" id="itemList"></div>
+  </div>
+</div>
+
+<!-- ===== 掲示板画面 ===== -->
+<div class="screen" id="boardScreen">
+  <div class="content">
+    <div class="board-header">
+      <div class="section-title" style="margin:0;">📢 掲示板</div>
+      <button class="board-post-btn" id="boardPostBtn" style="display:none;" onclick="openPostDrawer()">＋ 投稿</button>
+    </div>
+    <div id="boardList"><div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">📡 読み込み中...</div></div>
+  </div>
+</div>
+
+<!-- ===== 自分の貸出状況画面 ===== -->
+<div class="screen" id="myScreen">
+  <div class="content">
+    <div class="section-title">👤 自分の貸出状況</div>
+    <div class="my-lend-search">
+      <input class="form-input" id="myNameInput" placeholder="名前を入力（例：山田太郎）">
+      <button onclick="searchMyItems()">検索</button>
+    </div>
+    <div id="myItemList"><div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">名前を入力して検索してください</div></div>
+  </div>
+</div>
+
+<!-- ===== 備品登録画面（管理者のみ） ===== -->
+<div class="screen" id="registerScreen">
+  <div class="content">
+    <div class="section-title">新しい備品を登録</div>
+    <div class="reg-card">
+      <div class="reg-field">
+        <label class="form-label">備品名 <span class="req">必須</span></label>
+        <input class="form-input" id="regName" placeholder="例：FMドレス、パニエ（水色）">
+      </div>
+      <div class="reg-field">
+        <label class="form-label">番号 <span class="req">必須</span></label>
+        <input class="form-input" id="regNo" placeholder="例：1、2、21">
+      </div>
+      <div class="reg-field">
+        <label class="form-label">ジャンル <span class="req">必須</span></label>
+        <select class="form-input" id="regGenre">
+          <option value="">選択してください</option>
+          <option value="ドレス">ドレス</option>
+          <option value="P服">P服</option>
+          <option value="シューズ">シューズ</option>
+          <option value="燕尾">燕尾</option>
+          <option value="ベスネク">ベスネク</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+      <div class="reg-field">
+        <label class="form-label">サブカテゴリ</label>
+        <select class="form-input" id="regSub">
+          <option value="">なし</option>
+          <option value="FM">FM</option>
+          <option value="モダン">モダン</option>
+          <option value="ラテン">ラテン</option>
+        </select>
+      </div>
+      <div class="reg-field">
+        <label class="form-label">備考</label>
+        <input class="form-input" id="regNote" placeholder="例：小物あり、汚れあり">
+      </div>
+      <div class="reg-field">
+        <label class="form-label">写真</label>
+        <div class="photo-upload-area" onclick="document.getElementById('regPhoto').click()">
+          <div style="font-size:28px;margin-bottom:6px;">📷</div>
+          <div style="font-size:13px;color:var(--muted);">タップして写真を追加</div>
+          <input type="file" id="regPhoto" accept="image/*" onchange="previewRegPhoto(event)">
+        </div>
+        <img id="regPhotoPreview" class="photo-preview">
+      </div>
+      <button class="btn btn-primary reg-submit" onclick="doRegister()">＋ 備品を登録する</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 管理画面（管理者のみ） ===== -->
+<div class="screen" id="adminScreen">
+  <div class="content">
+    <div class="section-title">⚙️ 管理</div>
+    <div class="admin-card">
+      <div class="admin-section-title">🔑 パスワード情報</div>
+      <div class="pw-info">🔒 現在のパスワード：<strong id="pwDisplay">Bihin</strong></div>
+      <p style="font-size:12px;color:var(--muted);margin-top:10px;">パスワードを変更する場合はHTMLファイルのADMIN_PASSWORDを修正してください。</p>
+    </div>
+    <div class="admin-card">
+      <div class="admin-section-title">📊 データ管理</div>
+      <button class="btn btn-primary" style="width:100%;margin-bottom:8px;" onclick="fetchSheetsData();showToast('✅ データを更新しました')">🔄 データを再読み込み</button>
+      <button class="btn btn-secondary" style="width:100%;" onclick="fetchBoardData();showToast('✅ 掲示板を更新しました')">🔄 掲示板を再読み込み</button>
+    </div>
+    <div class="admin-card">
+      <div class="admin-section-title">📋 統計情報</div>
+      <div id="adminStats" style="font-size:13px;color:var(--muted);line-height:2;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 履歴画面（管理者のみ） ===== -->
+<div class="screen" id="historyScreen">
+  <div class="content">
+    <div class="section-title">📜 貸出・返却履歴</div>
+    <div id="historyList"><div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">📡 読み込み中...</div></div>
+  </div>
+</div>
+
+<!-- ===== ボトムナビ ===== -->
+<div class="bottom-nav" id="bottomNav" style="display:none;">
+  <button class="nav-btn active" id="navList" onclick="switchScreen('list')">
+    <span class="nav-icon">📋</span>一覧
+  </button>
+  <button class="nav-btn" id="navBoard" onclick="switchScreen('board')">
+    <span class="nav-icon">📢</span>掲示板
+    <span class="notif-badge" id="boardBadge"></span>
+  </button>
+  <button class="nav-btn" id="navMy" onclick="switchScreen('my')">
+    <span class="nav-icon">👤</span>マイ貸出
+  </button>
+  <button class="nav-btn admin-only" id="navHistory" onclick="switchScreen('history')" style="display:none;">
+    <span class="nav-icon">📜</span>履歴
+  </button>
+  <button class="nav-btn admin-only" id="navRegister" onclick="switchScreen('register')" style="display:none;">
+    <span class="nav-icon">➕</span>登録
+  </button>
+  <button class="nav-btn admin-only" id="navAdmin" onclick="switchScreen('admin')" style="display:none;">
+    <span class="nav-icon">⚙️</span>管理
+  </button>
+</div>
+
+<!-- ===== 詳細ドロワー ===== -->
+<div class="drawer-backdrop" id="backdrop" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-handle"></div>
+  <img class="drawer-img" id="drawerImg" style="display:none;">
+  <div class="drawer-header">
+    <div class="drawer-id" id="drawerID"></div>
+    <div class="drawer-name" id="drawerName"></div>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</div>
+
+<!-- ===== 掲示板投稿ドロワー ===== -->
+<div class="drawer-backdrop" id="postBackdrop" onclick="closePostDrawer()"></div>
+<div class="drawer" id="postDrawer">
+  <div class="drawer-handle"></div>
+  <div class="drawer-header">
+    <div class="drawer-name">📢 新規投稿</div>
+  </div>
+  <div class="post-form">
+    <div class="form-section">
+      <label class="form-label">タイトル <span class="req">必須</span></label>
+      <input class="form-input" id="postTitle" placeholder="例：新しい備品が追加されました">
+      <label class="form-label" style="margin-top:12px;">本文 <span class="req">必須</span></label>
+      <textarea class="form-input" id="postBody" rows="4" placeholder="内容を入力してください" style="resize:vertical;"></textarea>
+      <label class="form-label" style="margin-top:12px;">投稿者名 <span class="req">必須</span></label>
+      <input class="form-input" id="postAuthor" placeholder="例：備品担当 山田">
+      <label class="form-label" style="margin-top:12px;">写真（任意）</label>
+      <div class="photo-upload-area" onclick="document.getElementById('postPhoto').click()">
+        <div style="font-size:24px;margin-bottom:4px;">📷</div>
+        <div style="font-size:12px;color:var(--muted);">タップして写真を追加</div>
+        <input type="file" id="postPhoto" accept="image/*" onchange="previewPostPhoto(event)">
+      </div>
+      <img id="postPhotoPreview" class="photo-preview">
+    </div>
+    <div class="action-btns" style="margin-top:20px;">
+      <button class="btn btn-secondary" onclick="closePostDrawer()">キャンセル</button>
+      <button class="btn btn-primary" onclick="doPost()">投稿する</button>
+    </div>
+  </div>
+</div>
+
+<!-- トースト -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ======== 設定 ========
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxrvcq0meR18RsQE9mvsuU6r6LUrhsTh3Dn5gZhQqlx1dnHJTx63-qUqVeFOKWiUrfY3Q/exec';
+const DRIVE_FOLDER_ID = '1mY0Ap_irUIyIIxuIw1413Odfa8ljId8e';
+const ADMIN_PASSWORD = 'Bihin';
+
+// ======== 状態 ========
+let items = [];
+let boardPosts = [];
+let currentTab = 'all';
+let currentGenre = 'all';
+let currentSearch = '';
+let selectedItem = null;
+let isAdmin = false;
+
+// ======== ログイン ========
+let currentUserName = '';
+
+function cleanName(str) {
+  // 前後スペース・全角スペース・全角英数を半角に正規化
+  return str.replace(/[\u3000\u0020]+/g, ' ').trim();
+}
+
+function doLogin() {
+  const rawName = document.getElementById('nameInput').value;
+  const name = cleanName(rawName);
+  const pw = document.getElementById('loginInput').value;
+
+  if (!name) {
+    document.getElementById('loginError').textContent = 'お名前を入力してください';
+    return;
+  }
+
+  if (pw && pw !== ADMIN_PASSWORD) {
+    document.getElementById('loginError').textContent = 'パスワードが違います';
+    document.getElementById('loginInput').value = '';
+    return;
+  }
+
+  currentUserName = name;
+  isAdmin = pw === ADMIN_PASSWORD;
+
+  // 名前をLocalStorageに保存
+  localStorage.setItem('userName', name);
+
+  startApp();
+}
+
+function doLogout() {
+  isAdmin = false;
+  currentUserName = '';
+  document.getElementById('loginInput').value = '';
+  document.getElementById('loginError').textContent = '';
+  document.getElementById('loginScreen').classList.add('active');
+  document.getElementById('mainHeader').style.display = 'none';
+  document.getElementById('tabNav').style.display = 'none';
+  document.getElementById('filterChips').style.display = 'none';
+  document.getElementById('bottomNav').style.display = 'none';
+}
+
+// ページ読み込み時に保存済み名前を復元
+window.addEventListener('DOMContentLoaded', () => {
+  const savedName = localStorage.getItem('userName');
+  if (savedName) {
+    document.getElementById('nameInput').value = savedName;
+  }
+});
+function startApp() {
+  document.getElementById('loginScreen').classList.remove('active');
+  document.getElementById('mainHeader').style.display = 'block';
+  document.getElementById('tabNav').style.display = 'flex';
+  document.getElementById('filterChips').style.display = 'flex';
+  document.getElementById('bottomNav').style.display = 'flex';
+
+  // 権限バッジ（名前を表示）
+  const badge = document.getElementById('roleBadge');
+  badge.className = 'role-badge ' + (isAdmin ? 'admin' : 'guest');
+  badge.textContent = isAdmin ? `👑 ${currentUserName}` : `👤 ${currentUserName}`;
+
+  // 管理者専用UI
+  document.querySelectorAll('.admin-only').forEach(el => {
+    el.style.display = isAdmin ? 'flex' : 'none';
+  });
+  document.getElementById('boardPostBtn').style.display = isAdmin ? 'block' : 'none';
+
+  switchScreen('list');
+  fetchSheetsData();
+  fetchBoardData();
+}
+
+// ======== ログイン画面でEnterキー対応 ========
+document.getElementById('loginInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('nameInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+// ======== データ取得 ========
+async function fetchSheetsData() {
+  document.getElementById('itemList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">📡 データを読み込み中...</div>';
+  try {
+    const res = await fetch(GAS_URL);
+    const json = await res.json();
+    items = (json.items || []).map((row, idx) => ({
+      id:       row['ユニーク識別子'] || (row['備品名'] + '-' + idx),
+      uid:      row['ユニーク識別子'] || '',
+      rowIndex: idx + 2,
+      no:       row['番号'] || '',
+      name:     row['備品名'] || '',
+      sub:      row['サブカテゴリ'] || '',
+      genre:    row['ジャンル'] || '',
+      status:   row['ステータス'] || '貸出可能',
+      borrower: row['借受者'] || '',
+      lendDate: row['最終貸出日'] || '',
+      dueDate:  row['最終返却予定日'] || '',
+      note:     row['備考'] || '',
+      photoUrl: row['写真URL'] || '',
+    })).filter(i => i.name);
+    render();
+    updateAdminStats();
+  } catch(e) {
+    document.getElementById('itemList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--warning);font-size:14px;">⚠️ データの読み込みに失敗しました。</div>';
+  }
+}
+
+async function fetchBoardData() {
+  document.getElementById('boardList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">📡 読み込み中...</div>';
+  try {
+    const res = await fetch(GAS_URL + '?sheet=掲示板');
+    const json = await res.json();
+    boardPosts = (json.items || []).reverse(); // 新着順
+    renderBoard();
+    checkBoardBadge();
+  } catch(e) {
+    document.getElementById('boardList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">掲示板を読み込めませんでした</div>';
+  }
+}
+
+// ======== 日付ユーティリティ ========
+const today = new Date();
+function parseDate(str) {
+  if (!str) return null;
+  // "2025/9/9" "2025-09-09" "Wed Sep 09 2025..." など各形式に対応
+  const d = new Date(str.replace(/\//g, '-'));
+  return isNaN(d) ? null : d;
+}
+function isLate(item) {
+  if (item.status !== '貸出中' || !item.dueDate) return false;
+  const d = parseDate(item.dueDate);
+  return d && d < today;
+}
+function formatDateJP(str) {
+  if (!str) return '未設定';
+  const d = parseDate(str);
+  if (!d) return str;
+  return `${d.getMonth() + 1}/${d.getDate()}`;
+}
+function iconFor(genre) {
+  if (genre === 'ドレス') return { emoji: '👗', cls: 'dress' };
+  if (genre === '燕尾')  return { emoji: '🤵', cls: 'suit' };
+  if (genre === 'シューズ') return { emoji: '👟', cls: 'shoes' };
+  return { emoji: '📦', cls: 'other' };
+}
+
+// ======== フィルタリング ========
+function getFilteredItems() {
+  return items.filter(item => {
+    const matchTab =
+      currentTab === 'all' ||
+      (currentTab === 'available' && item.status === '貸出可能') ||
+      (currentTab === 'lent' && item.status === '貸出中') ||
+      (currentTab === 'late' && isLate(item));
+    const matchGenre = currentGenre === 'all' || item.genre === currentGenre;
+    const q = currentSearch.toLowerCase();
+    const matchSearch = !q ||
+      item.name.toLowerCase().includes(q) ||
+      item.id.toLowerCase().includes(q) ||
+      item.borrower.toLowerCase().includes(q);
+    return matchTab && matchGenre && matchSearch;
+  });
+}
+
+// ======== レンダリング ========
+function render() {
+  const filtered = getFilteredItems();
+  const total = items.length;
+  const available = items.filter(i => i.status === '貸出可能').length;
+  const lent = items.filter(i => i.status === '貸出中').length;
+  const late = items.filter(i => isLate(i)).length;
+
+  document.getElementById('summaryCards').innerHTML = `
+    <div class="sum-card ok"><div class="sum-num">${available}</div><div class="sum-label">貸出可能</div></div>
+    <div class="sum-card"><div class="sum-num">${lent}</div><div class="sum-label">貸出中</div></div>
+    <div class="sum-card warn"><div class="sum-num">${late}</div><div class="sum-label">延滞</div></div>
+  `;
+
+  const banner = document.getElementById('alertBanner');
+  const lateItems = items.filter(i => isLate(i));
+  if (lateItems.length > 0) {
+    banner.style.display = 'block';
+    banner.textContent = `⚠️ ${lateItems.length}件の延滞：${lateItems.slice(0,2).map(i => i.borrower + '（期限 ' + formatDateJP(i.dueDate) + '）').join('、')}等`;
+  } else {
+    banner.style.display = 'none';
+  }
+
+  document.getElementById('listCount').textContent = `${filtered.length}件`;
+
+  const list = document.getElementById('itemList');
+  if (filtered.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">該当する備品がありません</div>';
+    return;
+  }
+  list.innerHTML = filtered.map(item => {
+    const ic = iconFor(item.genre);
+    const late = isLate(item);
+    const badge = item.status === '貸出可能'
+      ? '<span class="badge ok">貸出可能</span>'
+      : late ? '<span class="badge late">延滞中</span>'
+      : '<span class="badge out">貸出中</span>';
+    const sub = item.status === '貸出中' ? `<div class="borrower-text">${item.borrower}</div>` : '';
+    const thumb = item.photoUrl
+      ? `<img class="item-thumb" id="thumb-${item.id}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="item-thumb-placeholder ${ic.cls}" style="display:none;">${ic.emoji}</div>`
+      : `<div class="item-thumb-placeholder ${ic.cls}">${ic.emoji}</div>`;
+    return `<div class="item-card" onclick="openDrawer('${item.id}')">
+      ${thumb}
+      <div class="item-body">
+        <div class="item-name">${item.name}</div>
+        <span class="item-no">${item.no ? 'No.' + item.no + '　' : ''}${item.id}</span>
+        ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+      </div>
+      <div class="item-meta">${badge}${sub}</div>
+    </div>`;
+  }).join('');
+
+  // 画像をGAS経由で非同期読み込み
+  filtered.forEach(item => {
+    if (item.photoUrl) {
+      const img = document.getElementById('thumb-' + item.id);
+      if (img) loadImage(item.photoUrl, img);
+    }
+  });
+}
+
+// ======== 掲示板レンダリング ========
+function renderBoard() {
+  const list = document.getElementById('boardList');
+  if (boardPosts.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">投稿はまだありません</div>';
+    return;
+  }
+  list.innerHTML = boardPosts.map((post, idx) => {
+    const date = post['投稿日時'] ? new Date(post['投稿日時']).toLocaleDateString('ja-JP') : '';
+    const imgUrl = post['写真URL'] || '';
+    return `<div class="post-card" onclick="togglePost(${idx})">
+      <div class="post-date">${date}</div>
+      <div class="post-title">${post['タイトル'] || '（タイトルなし）'} <span class="post-chevron" id="chevron-${idx}">▼</span></div>
+      <div class="post-author">📝 ${post['投稿者'] || ''}</div>
+      <div class="post-body" id="postBody-${idx}">${(post['本文'] || '').replace(/\n/g,'<br>')}</div>
+      ${imgUrl ? `<img class="post-img" id="postImg-${idx}" src="${imgUrl}">` : ''}
+    </div>`;
+  }).join('');
+}
+
+function togglePost(idx) {
+  const body = document.getElementById('postBody-' + idx);
+  const chevron = document.getElementById('chevron-' + idx);
+  const img = document.getElementById('postImg-' + idx);
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+  if (img) img.classList.toggle('open');
+}
+
+// ======== ドロワー ========
+function openDrawer(id) {
+  const item = items.find(i => i.id === id);
+  if (!item) return;
+  selectedItem = item;
+
+  // 写真
+  const drawerImg = document.getElementById('drawerImg');
+  if (item.photoUrl) {
+    drawerImg.src = '';
+    drawerImg.style.display = 'block';
+    loadImage(item.photoUrl, drawerImg);
+  } else {
+    drawerImg.style.display = 'none';
+  }
+
+  document.getElementById('drawerID').textContent = item.id;
+  document.getElementById('drawerName').textContent = item.name;
+
+  const late = isLate(item);
+  const statusBadge = item.status === '貸出可能'
+    ? '<span class="badge ok">貸出可能</span>'
+    : late ? '<span class="badge late">延滞中</span>'
+    : '<span class="badge out">貸出中</span>';
+
+  let body = `<div class="info-row"><span class="info-label">ステータス</span>${statusBadge}</div>`;
+  if (item.genre) body += `<div class="info-row"><span class="info-label">ジャンル</span><span class="info-val">${item.genre}${item.sub ? ' / ' + item.sub : ''}</span></div>`;
+  if (item.status === '貸出中') {
+    body += `<div class="info-row"><span class="info-label">借受者</span><span class="info-val">${item.borrower}</span></div>`;
+    if (item.dueDate) body += `<div class="info-row"><span class="info-label">返却予定日</span><span class="info-val ${late ? 'badge late' : ''}">${formatDateJP(item.dueDate)}${late ? ' ⚠️延滞中' : ''}</span></div>`;
+  }
+  if (item.note) body += `<div class="info-row"><span class="info-label">備考</span><span class="info-val">${item.note}</span></div>`;
+
+  // 写真アップロード（管理者のみ）
+  if (isAdmin) {
+    body += `
+    <div class="form-section" style="margin-top:16px;">
+      <label class="form-label">📷 写真を${item.photoUrl ? '変更' : '追加'}</label>
+      <div class="photo-upload-area" onclick="document.getElementById('drawerPhotoInput').click()">
+        <div style="font-size:24px;margin-bottom:4px;">📷</div>
+        <div style="font-size:12px;color:var(--muted);">タップして写真を選択</div>
+        <input type="file" id="drawerPhotoInput" accept="image/*" onchange="previewDrawerPhoto(event)">
+      </div>
+      <img id="drawerPhotoPreview" class="photo-preview">
+    </div>
+    <button class="btn btn-secondary" style="width:100%;margin-top:10px;" onclick="uploadPhoto()">📤 写真をアップロード</button>`;
+  }
+
+  if (item.status === '貸出可能') {
+    body += `
+    <div class="form-section">
+      <label class="form-label">借受者名</label>
+      <input class="form-input" id="borrowerInput" placeholder="例：山田太郎">
+      <label class="form-label" style="margin-top:10px;">返却予定日</label>
+      <input class="form-input" id="dueDateInput" type="date">
+    </div>
+    <div class="action-btns">
+      <button class="btn btn-secondary" onclick="closeDrawer()">キャンセル</button>
+      <button class="btn btn-primary" onclick="doLend()">📤 貸し出す</button>
+    </div>`;
+  } else {
+    body += `
+    <div class="action-btns">
+      <button class="btn btn-secondary" onclick="closeDrawer()">閉じる</button>
+      <button class="btn btn-danger" onclick="doReturn()">📥 返却処理</button>
+    </div>`;
+  }
+
+  document.getElementById('drawerBody').innerHTML = body;
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('backdrop').classList.add('open');
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('backdrop').classList.remove('open');
+  selectedItem = null;
+}
+
+// ======== 画像読み込み（GAS経由・キャッシュ付き） ========
+const imageCache = {};
+async function loadImage(fileId, imgElement) {
+  if (!fileId) return;
+  // キャッシュがあれば即表示
+  if (imageCache[fileId]) {
+    imgElement.src = imageCache[fileId];
+    imgElement.style.display = 'block';
+    return;
+  }
+  // HTTPSのURLの場合はそのまま表示を試みる
+  if (fileId.startsWith('http')) {
+    imgElement.src = fileId;
+    return;
+  }
+  try {
+    const res = await fetch(GAS_URL + '?fileId=' + fileId);
+    const json = await res.json();
+    if (json.success) {
+      const dataUrl = `data:${json.mimeType};base64,${json.data}`;
+      imageCache[fileId] = dataUrl; // キャッシュに保存
+      imgElement.src = dataUrl;
+      imgElement.style.display = 'block';
+    }
+  } catch(e) {
+    imgElement.style.display = 'none';
+  }
+}
+function previewDrawerPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const preview = document.getElementById('drawerPhotoPreview');
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = 'block';
+}
+function previewRegPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const preview = document.getElementById('regPhotoPreview');
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = 'block';
+}
+function previewPostPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const preview = document.getElementById('postPhotoPreview');
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = 'block';
+}
+
+// ======== 写真アップロード ========
+async function uploadPhoto() {
+  if (!selectedItem) return;
+  const input = document.getElementById('drawerPhotoInput');
+  if (!input.files[0]) { showToast('写真を選択してください'); return; }
+  showToast('⏳ アップロード中...');
+  try {
+    const base64 = await toBase64(input.files[0]);
+    const res = await fetch(GAS_URL, {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify({
+        action: 'uploadPhoto',
+        id: selectedItem.uid || selectedItem.id,
+        fileName: selectedItem.id + '_' + Date.now() + '.jpg',
+        fileData: base64,
+        mimeType: input.files[0].type,
+        folderId: DRIVE_FOLDER_ID
+      })
+    });
+    const json = await res.json();
+    if (json.success && json.url) {
+      selectedItem.photoUrl = json.url;
+      showToast('✅ 写真をアップロードしました');
+      closeDrawer();
+      render();
+    } else {
+      showToast('⚠️ アップロード失敗: ' + (json.error || '不明'));
+    }
+  } catch(e) {
+    showToast('⚠️ 通信エラーが発生しました');
+  }
+}
+
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX = 800;
+        let w = img.width, h = img.height;
+        if (w > h && w > MAX) { h = h * MAX / w; w = MAX; }
+        else if (h > MAX) { w = w * MAX / h; h = MAX; }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+// ======== 貸出・返却 ========
+async function doLend() {
+  if (!selectedItem) return;
+  const borrower = document.getElementById('borrowerInput').value.trim();
+  const dueDate = document.getElementById('dueDateInput').value;
+  if (!borrower) { showToast('借受者名を入力してください'); return; }
+  if (!dueDate) { showToast('返却予定日を入力してください'); return; }
+  const d = dueDate.replace(/-/g,'/');
+  const lendDateStr = new Date().toLocaleDateString('ja-JP').replace(/\//g,'/');
+  // closeDrawer前にデータを保存
+  const itemId = selectedItem.uid || selectedItem.id;
+  const rowIndex = selectedItem.rowIndex;
+  const itemName = selectedItem.name;
+  // ローカル状態を更新
+  selectedItem.status = '貸出中';
+  selectedItem.borrower = borrower;
+  selectedItem.dueDate = d;
+  closeDrawer();
+  render();
+  showToast('⏳ 処理中...');
+  try {
+    await fetch(GAS_URL, {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify({ action:'lend', id: itemId, rowIndex, borrower, lendDate: lendDateStr, dueDate: d })
+    });
+  } catch(e) { /* CORSエラーは無視、GASは正常に処理済み */ }
+  showToast(`✅ ${itemName} を ${borrower} に貸し出しました`);
+}
+
+async function doReturn() {
+  if (!selectedItem) return;
+  const name = selectedItem.name;
+  const borrower = selectedItem.borrower;
+  // closeDrawer前にデータを保存
+  const itemId = selectedItem.uid || selectedItem.id;
+  const rowIndex = selectedItem.rowIndex;
+  // ローカル状態を更新
+  selectedItem.status = '貸出可能';
+  selectedItem.borrower = '';
+  selectedItem.dueDate = '';
+  closeDrawer();
+  render();
+  showToast('⏳ 処理中...');
+  try {
+    await fetch(GAS_URL, {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify({ action:'return', id: itemId, rowIndex, borrower })
+    });
+  } catch(e) { /* CORSエラーは無視、GASは正常に処理済み */ }
+  showToast(`✅ ${name}（${borrower}）の返却を記録しました`);
+}
+
+// ======== 掲示板投稿 ========
+function openPostDrawer() {
+  document.getElementById('postDrawer').classList.add('open');
+  document.getElementById('postBackdrop').classList.add('open');
+}
+function closePostDrawer() {
+  document.getElementById('postDrawer').classList.remove('open');
+  document.getElementById('postBackdrop').classList.remove('open');
+}
+
+async function doPost() {
+  const title = document.getElementById('postTitle').value.trim();
+  const body = document.getElementById('postBody').value.trim();
+  const author = document.getElementById('postAuthor').value.trim();
+  if (!title) { showToast('タイトルを入力してください'); return; }
+  if (!body)  { showToast('本文を入力してください'); return; }
+  if (!author){ showToast('投稿者名を入力してください'); return; }
+
+  showToast('⏳ 投稿中...');
+
+  let photoUrl = '';
+  const photoFile = document.getElementById('postPhoto').files[0];
+  if (photoFile) {
+    try {
+      const base64 = await toBase64(photoFile);
+      const res = await fetch(GAS_URL, {
+        method: 'POST',
+        redirect: 'follow',
+        body: JSON.stringify({
+          action: 'uploadPhoto',
+          id: 'board_' + Date.now(),
+          fileName: 'board_' + Date.now() + '.jpg',
+          fileData: base64,
+          mimeType: photoFile.type,
+          folderId: DRIVE_FOLDER_ID
+        })
+      });
+      const json = await res.json();
+      if (json.success && json.url) photoUrl = json.url;
+    } catch(e) {}
+  }
+
+  try {
+    const res = await fetch(GAS_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'boardPost', title, body, author, photoUrl })
+    });
+    const json = await res.json();
+    if (json.success) {
+      ['postTitle','postBody','postAuthor'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('postPhotoPreview').style.display = 'none';
+      closePostDrawer();
+      showToast('✅ 投稿しました');
+      fetchBoardData();
+    } else {
+      showToast('⚠️ エラー: ' + (json.error || '不明'));
+    }
+  } catch(e) { showToast('⚠️ 通信エラーが発生しました'); }
+}
+
+// ======== 自分の貸出状況 ========
+function searchMyItems() {
+  const name = document.getElementById('myNameInput').value.trim();
+  if (!name) { showToast('名前を入力してください'); return; }
+  const myItems = items.filter(i =>
+    i.status === '貸出中' && i.borrower.includes(name)
+  );
+  const list = document.getElementById('myItemList');
+  if (myItems.length === 0) {
+    list.innerHTML = `<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">「${name}」さんの貸出中備品はありません</div>`;
+    return;
+  }
+  list.innerHTML = myItems.map(item => {
+    const late = isLate(item);
+    return `<div class="my-item-card">
+      <div class="my-item-name">${item.name}</div>
+      <div class="my-item-info">ID：${item.id}　${item.genre}</div>
+      <div class="my-item-due ${late ? 'late' : 'ok'}">
+        ${late ? '⚠️ 延滞中　貸出期限 ' : '📅 貸出期限 '}${formatDateJP(item.dueDate)}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ======== 備品登録 ========
+async function doRegister() {
+  const name  = document.getElementById('regName').value.trim();
+  const no    = document.getElementById('regNo').value.trim();
+  const genre = document.getElementById('regGenre').value;
+  const sub   = document.getElementById('regSub').value;
+  const note  = document.getElementById('regNote').value.trim();
+  if (!name)  { showToast('備品名を入力してください'); return; }
+  if (!no)    { showToast('番号を入力してください'); return; }
+  if (!genre) { showToast('ジャンルを選択してください'); return; }
+
+  showToast('⏳ 登録中...');
+
+  try {
+    // ① まず備品情報を登録してUIDを取得
+    const res = await fetch(GAS_URL, {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify({ action: 'register', name, no, genre, sub, note, photoUrl: '' })
+    });
+    const json = await res.json();
+    if (!json.success) {
+      showToast('⚠️ エラー: ' + (json.error || '不明'));
+      return;
+    }
+
+    const newUid = json.uid;
+
+    // ② 写真があればUIDを使ってアップロード
+    const photoFile = document.getElementById('regPhoto').files[0];
+    if (photoFile && newUid) {
+      showToast('⏳ 写真をアップロード中...');
+      try {
+        const base64 = await toBase64(photoFile);
+        await fetch(GAS_URL, {
+          method: 'POST',
+          redirect: 'follow',
+          body: JSON.stringify({
+            action: 'uploadPhoto',
+            id: newUid,
+            fileName: newUid + '_' + Date.now() + '.jpg',
+            fileData: base64,
+            mimeType: photoFile.type,
+            folderId: DRIVE_FOLDER_ID
+          })
+        });
+      } catch(e) {
+        showToast('⚠️ 写真のアップロードに失敗しました');
+      }
+    }
+
+    ['regName','regNo','regNote'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('regGenre').value = '';
+    document.getElementById('regSub').value = '';
+    document.getElementById('regPhotoPreview').style.display = 'none';
+    showToast(`✅ 「${name}」を登録しました`);
+    await fetchSheetsData();
+  } catch(e) { showToast('⚠️ 通信エラーが発生しました'); }
+}
+
+// ======== クイック操作 ========
+function openQuickLend() { showToast('備品をタップして貸出処理を行ってください'); }
+function openQuickReturn() {
+  currentTab = 'lent';
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===2));
+  render();
+  showToast('貸出中の備品をタップして返却処理を行えます');
+}
+
+// ======== フィルター ========
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+function filterGenre(genre, btn) {
+  currentGenre = genre;
+  document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+function filterItems() {
+  currentSearch = document.getElementById('searchInput').value;
+  render();
+}
+
+// ======== 画面切り替え ========
+function switchScreen(screen) {
+  const screens = ['list','board','my','history','register','admin'];
+  const navs = ['navList','navBoard','navMy','navHistory','navRegister','navAdmin'];
+  screens.forEach((s, i) => {
+    const el = document.getElementById(s + 'Screen');
+    const nav = document.getElementById(navs[i]);
+    if (el) el.classList.toggle('active', s === screen);
+    if (nav) nav.classList.toggle('active', s === screen);
+  });
+  const isListScreen = screen === 'list';
+  document.getElementById('headerSearch').style.display = isListScreen ? 'flex' : 'none';
+  document.getElementById('tabNav').style.display = isListScreen ? 'flex' : 'none';
+  document.getElementById('filterChips').style.display = isListScreen ? 'flex' : 'none';
+
+  // 掲示板を開いたら通知バッジを消す
+  if (screen === 'board') {
+    clearBoardBadge();
+  }
+  // 履歴を開いたらデータ取得
+  if (screen === 'history') {
+    fetchHistoryData();
+  }
+  // マイ貸出を開いたら自動検索
+  if (screen === 'my') {
+    document.getElementById('myNameInput').value = currentUserName;
+    if (currentUserName) searchMyItems();
+  }
+}
+
+// ======== 貸出・返却履歴 ========
+async function fetchHistoryData() {
+  document.getElementById('historyList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">📡 読み込み中...</div>';
+  try {
+    const res = await fetch(GAS_URL + '?sheet=貸出履歴');
+    const json = await res.json();
+    const history = (json.items || []).reverse();
+    if (history.length === 0) {
+      document.getElementById('historyList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:14px;">履歴がありません</div>';
+      return;
+    }
+    document.getElementById('historyList').innerHTML = history.slice(0, 100).map(row => {
+      const isReturn = row['返却処理'] === '返却';
+      const date = row['タイムスタンプ'] ? new Date(row['タイムスタンプ']).toLocaleDateString('ja-JP') : '';
+      const id = row['ユニーク識別子'] || '';
+      const itemName = row['備品名'] || '';
+      const borrower = row['借受者名'] || '';
+      const lendDate = row['貸出日'] ? formatDateJP(row['貸出日']) : '';
+      const returnDate = row['返却日'] ? formatDateJP(row['返却日']) : '';
+      return `<div class="history-card">
+        <div class="history-type ${isReturn ? 'return' : 'lend'}">${isReturn ? '📥' : '📤'}</div>
+        <div class="history-info">
+          <div class="history-name">${itemName || id}</div>
+          <div class="history-meta">${borrower}　${id}　${isReturn ? '返却 ' + returnDate : '貸出 ' + lendDate}</div>
+        </div>
+        <div class="history-date">${date}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('historyList').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--warning);font-size:14px;">⚠️ 履歴の読み込みに失敗しました</div>';
+  }
+}
+
+// ======== 掲示板通知バッジ ========
+function checkBoardBadge() {
+  const lastChecked = localStorage.getItem('boardLastChecked') || '0';
+  if (boardPosts.length === 0) return;
+  const latest = boardPosts[0]['投稿日時'];
+  if (latest && new Date(latest).getTime() > parseInt(lastChecked)) {
+    document.getElementById('boardBadge').classList.add('show');
+  }
+}
+function clearBoardBadge() {
+  localStorage.setItem('boardLastChecked', Date.now().toString());
+  document.getElementById('boardBadge').classList.remove('show');
+}
+
+// ======== 管理画面統計 ========
+function updateAdminStats() {
+  if (!isAdmin) return;
+  const total = items.length;
+  const available = items.filter(i => i.status === '貸出可能').length;
+  const lent = items.filter(i => i.status === '貸出中').length;
+  const late = items.filter(i => isLate(i)).length;
+  const statsEl = document.getElementById('adminStats');
+  if (statsEl) {
+    statsEl.innerHTML = `
+      総備品数：${total}件<br>
+      貸出可能：${available}件<br>
+      貸出中：${lent}件<br>
+      延滞中：${late}件
+    `;
+  }
+}
+
+// ======== トースト ========
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+</script>
+</body>
+</html>
